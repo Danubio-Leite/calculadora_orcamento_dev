@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/appbar.dart';
 import '../models/budget.dart';
 
 class BudgetDetailScreen extends StatelessWidget {
@@ -9,8 +10,8 @@ class BudgetDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Detalhes do Orçamento'),
+      appBar: const GradientAppBar(
+        title: 'Detalhes do Orçamento',
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

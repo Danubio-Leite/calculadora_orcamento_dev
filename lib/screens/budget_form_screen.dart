@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/appbar.dart';
+import '../components/button.dart';
 import '../models/budget.dart';
 import 'budget_result_screen.dart';
 
@@ -190,9 +191,9 @@ class _BudgetFormScreenState extends State<BudgetFormScreen> {
                 },
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
+              GradientButton(
                 onPressed: _calcularOrcamento,
-                child: const Text('Calcular Orçamento'),
+                text: 'Calcular Orçamento',
               ),
             ],
           ),

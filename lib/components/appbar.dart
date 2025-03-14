@@ -5,13 +5,14 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
   final double elevation;
+  final bool hasBackButton;
 
-  const GradientAppBar({
-    Key? key,
-    required this.title,
-    this.actions,
-    this.elevation = 4.0,
-  }) : super(key: key);
+  const GradientAppBar(
+      {super.key,
+      required this.title,
+      this.actions,
+      this.elevation = 4.0,
+      this.hasBackButton = true});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -28,6 +29,12 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontSize: 20,
         ),
       ),
+      leading: hasBackButton
+          ? IconButton(
+              icon: const Icon(Icons.arrow_back, color: AppColors.white),
+              onPressed: () => Navigator.pop(context),
+            )
+          : null,
       elevation: elevation,
       actions: actions,
       backgroundColor: Colors.transparent,

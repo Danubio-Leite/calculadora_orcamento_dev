@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../components/appbar.dart';
+import '../components/button.dart';
 import 'budget_form_screen.dart';
 import 'saved_budgets_screen.dart';
 
@@ -8,9 +10,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Gerador de Orçamento'),
-        centerTitle: true,
+      appBar: const GradientAppBar(
+        title: 'Calculadora de Orçamentos',
+        hasBackButton: false,
       ),
       body: Center(
         child: Padding(
@@ -18,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
+              GradientButton(
                 onPressed: () {
                   // Navega para o formulário de novo orçamento
                   Navigator.push(
@@ -27,10 +29,10 @@ class HomeScreen extends StatelessWidget {
                         builder: (context) => const BudgetFormScreen()),
                   );
                 },
-                child: const Text('Novo Orçamento'),
+                text: 'Novo Orçamento',
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
+              GradientButton(
                 onPressed: () {
                   // Navega para a tela de orçamentos salvos
                   Navigator.push(
@@ -39,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                         builder: (context) => const SavedBudgetsScreen()),
                   );
                 },
-                child: const Text('Orçamentos Salvos'),
+                text: 'Orçamentos Salvos',
               ),
             ],
           ),

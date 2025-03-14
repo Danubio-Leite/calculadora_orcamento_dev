@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../components/appbar.dart';
+import '../components/button.dart';
 import '../models/budget.dart';
 import '../database/budget_database.dart';
 
@@ -23,8 +25,8 @@ class BudgetResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Orçamento Detalhado'),
+      appBar: const GradientAppBar(
+        title: 'Orçamento Detalhado',
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -74,9 +76,9 @@ class BudgetResultScreen extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 18, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 20),
-                ElevatedButton(
+                GradientButton(
                   onPressed: () => _salvarOrcamento(context),
-                  child: const Text('Salvar Orçamento'),
+                  text: 'Salvar Orçamento',
                 ),
               ],
             ),
