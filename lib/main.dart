@@ -1,5 +1,5 @@
+import 'package:calculadora_orcamento_dev/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'screens/budget_form_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const BudgetFormScreen(),
+      home: const HomeScreen(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/appbar.dart';
 import '../models/budget.dart';
 import 'budget_result_screen.dart';
 
@@ -61,9 +62,8 @@ class _BudgetFormScreenState extends State<BudgetFormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Gerador de Orçamento'),
-        centerTitle: true,
+      appBar: const GradientAppBar(
+        title: 'Novo Orçamento',
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

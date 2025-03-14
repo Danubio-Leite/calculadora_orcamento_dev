@@ -1,4 +1,5 @@
 class Budget {
+  int? id;
   String nomeProjeto;
   String descricao;
   double precoHora;
@@ -13,6 +14,7 @@ class Budget {
   static const double horasLogin = 3.0;
 
   Budget({
+    this.id,
     required this.nomeProjeto,
     required this.descricao,
     required this.precoHora,
@@ -28,4 +30,30 @@ class Budget {
 
   double get totalHoras => baseHoras + extraTelas + extraBaas + extraLogin;
   double get orcamentoTotal => totalHoras * precoHora;
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'nomeProjeto': nomeProjeto,
+      'descricao': descricao,
+      'precoHora': precoHora,
+      'baseHoras': baseHoras,
+      'numTelas': numTelas,
+      'usaBaas': usaBaas ? 1 : 0,
+      'temLogin': temLogin ? 1 : 0,
+    };
+  }
+
+  factory Budget.fromMap(Map<String, dynamic> map) {
+    return Budget(
+      id: map['id'],
+      nomeProjeto: map['nomeProjeto'],
+      descricao: map['descricao'],
+      precoHora: map['precoHora'],
+      baseHoras: map['baseHoras'],
+      numTelas: map['numTelas'],
+      usaBaas: map['usaBaas'] == 1,
+      temLogin: map['temLogin'] == 1,
+    );
+  }
 }
