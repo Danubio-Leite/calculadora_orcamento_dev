@@ -61,9 +61,32 @@ class _SavedBudgetsScreenState extends State<SavedBudgetsScreen> {
     return Dismissible(
       key: Key(budget.id.toString()),
       background: _buildDismissibleBackground(alignment: Alignment.centerLeft),
-      direction: DismissDirection.endToStart,
       secondaryBackground:
           _buildDismissibleBackground(alignment: Alignment.centerRight),
+      direction: DismissDirection.endToStart,
+      confirmDismiss: (direction) async {
+        return await showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text("Confirmar Exclusão"),
+              content: const Text("Deseja realmente excluir este orçamento?"),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: const Text("Cancelar",
+                      style: TextStyle(color: Colors.black)),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: const Text("Excluir",
+                      style: TextStyle(color: Colors.red)),
+                ),
+              ],
+            );
+          },
+        );
+      },
       onDismissed: (_) => _deleteBudget(budget.id!),
       child: Card(
         elevation: 4.0,
@@ -87,7 +110,10 @@ class _SavedBudgetsScreenState extends State<SavedBudgetsScreen> {
               style: const TextStyle(fontSize: 16.0),
             ),
           ),
-          trailing: const Icon(Icons.arrow_forward_ios),
+          trailing: const Icon(
+            Icons.arrow_forward_ios,
+            color: Colors.indigo,
+          ),
           onTap: () {
             Navigator.push(
               context,

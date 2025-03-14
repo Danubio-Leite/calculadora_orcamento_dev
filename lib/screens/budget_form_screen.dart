@@ -1,3 +1,4 @@
+import 'package:calculadora_orcamento_dev/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../components/appbar.dart';
 import '../components/button.dart';
@@ -173,6 +174,8 @@ class _BudgetFormScreenState extends State<BudgetFormScreen> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SwitchListTile(
+                activeTrackColor: AppColors.customIndigo,
+                inactiveTrackColor: AppColors.grey,
                 title: const Text('Usar BaaS (Banco de Dados as a Service)'),
                 value: _usaBaas,
                 onChanged: (bool value) {
@@ -182,6 +185,8 @@ class _BudgetFormScreenState extends State<BudgetFormScreen> {
                 },
               ),
               SwitchListTile(
+                activeTrackColor: AppColors.customIndigo,
+                inactiveTrackColor: AppColors.grey,
                 title: const Text('Incluir funcionalidade de Login'),
                 value: _temLogin,
                 onChanged: (bool value) {

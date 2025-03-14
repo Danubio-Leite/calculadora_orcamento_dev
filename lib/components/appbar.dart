@@ -21,6 +21,7 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
+      clipBehavior: Clip.antiAlias,
       title: Text(
         title,
         style: const TextStyle(
@@ -39,7 +40,12 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: actions,
       backgroundColor: Colors.transparent,
       flexibleSpace: Container(
+        clipBehavior: Clip.antiAlias,
         decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(4),
+            bottomRight: Radius.circular(4),
+          ),
           gradient: LinearGradient(
             colors: [
               AppColors.primaryBlue,
